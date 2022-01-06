@@ -6,7 +6,7 @@
 #
 Name     : pypi-flask
 Version  : 2.0.2
-Release  : 51
+Release  : 52
 URL      : https://files.pythonhosted.org/packages/95/40/b976286b5e7ba01794a7e7588e7e7fa27fb16c6168fa849234840bf0f61d/Flask-2.0.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/95/40/b976286b5e7ba01794a7e7588e7e7fa27fb16c6168fa849234840bf0f61d/Flask-2.0.2.tar.gz
 Source1  : https://files.pythonhosted.org/packages/95/40/b976286b5e7ba01794a7e7588e7e7fa27fb16c6168fa849234840bf0f61d/Flask-2.0.2.tar.gz.asc
@@ -17,14 +17,7 @@ Requires: pypi-flask-bin = %{version}-%{release}
 Requires: pypi-flask-license = %{version}-%{release}
 Requires: pypi-flask-python = %{version}-%{release}
 Requires: pypi-flask-python3 = %{version}-%{release}
-BuildRequires : Jinja2
-BuildRequires : MarkupSafe
-BuildRequires : Werkzeug-python
 BuildRequires : buildreq-distutils3
-Provides: Flask
-Provides: Flask-python
-Provides: Flask-python3
-BuildRequires : itsdangerous-python
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pypi(click)
@@ -93,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641436435
+export SOURCE_DATE_EPOCH=1641459125
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
