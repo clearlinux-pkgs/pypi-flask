@@ -6,7 +6,7 @@
 #
 Name     : pypi-flask
 Version  : 2.0.2
-Release  : 52
+Release  : 53
 URL      : https://files.pythonhosted.org/packages/95/40/b976286b5e7ba01794a7e7588e7e7fa27fb16c6168fa849234840bf0f61d/Flask-2.0.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/95/40/b976286b5e7ba01794a7e7588e7e7fa27fb16c6168fa849234840bf0f61d/Flask-2.0.2.tar.gz
 Source1  : https://files.pythonhosted.org/packages/95/40/b976286b5e7ba01794a7e7588e7e7fa27fb16c6168fa849234840bf0f61d/Flask-2.0.2.tar.gz.asc
@@ -27,6 +27,9 @@ BuildRequires : pypi(werkzeug)
 BuildRequires : pytest
 BuildRequires : tox
 BuildRequires : virtualenv
+Provides: Flask
+Provides: Flask-python
+Provides: Flask-python3
 
 %description
 Flask
