@@ -18,7 +18,7 @@ Requires: pypi-flask-license = %{version}-%{release}
 Requires: pypi-flask-python = %{version}-%{release}
 Requires: pypi-flask-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pluggy
+BuildRequires : pypi(pluggy)
 BuildRequires : py-python
 BuildRequires : pypi(click)
 BuildRequires : pypi(itsdangerous)
@@ -26,7 +26,7 @@ BuildRequires : pypi(jinja2)
 BuildRequires : pypi(werkzeug)
 BuildRequires : pytest
 BuildRequires : tox
-BuildRequires : virtualenv
+BuildRequires : pypi(virtualenv)
 Provides: Flask
 Provides: Flask-python
 Provides: Flask-python3
