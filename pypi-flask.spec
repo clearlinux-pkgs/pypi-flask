@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7A1C87E3F5BC42A8 (davidism@gmail.com)
 #
 Name     : pypi-flask
-Version  : 2.0.2
-Release  : 54
-URL      : https://files.pythonhosted.org/packages/95/40/b976286b5e7ba01794a7e7588e7e7fa27fb16c6168fa849234840bf0f61d/Flask-2.0.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/95/40/b976286b5e7ba01794a7e7588e7e7fa27fb16c6168fa849234840bf0f61d/Flask-2.0.2.tar.gz
-Source1  : https://files.pythonhosted.org/packages/95/40/b976286b5e7ba01794a7e7588e7e7fa27fb16c6168fa849234840bf0f61d/Flask-2.0.2.tar.gz.asc
+Version  : 2.0.3
+Release  : 55
+URL      : https://files.pythonhosted.org/packages/84/9d/66347e6b3e2eb78647392d3969c23bdc2d8b2fdc32bd078c817c15cb81ad/Flask-2.0.3.tar.gz
+Source0  : https://files.pythonhosted.org/packages/84/9d/66347e6b3e2eb78647392d3969c23bdc2d8b2fdc32bd078c817c15cb81ad/Flask-2.0.3.tar.gz
+Source1  : https://files.pythonhosted.org/packages/84/9d/66347e6b3e2eb78647392d3969c23bdc2d8b2fdc32bd078c817c15cb81ad/Flask-2.0.3.tar.gz.asc
 Summary  : A simple framework for building complex web applications.
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -18,18 +18,15 @@ Requires: pypi-flask-license = %{version}-%{release}
 Requires: pypi-flask-python = %{version}-%{release}
 Requires: pypi-flask-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(pluggy)
-BuildRequires : py-python
 BuildRequires : pypi(click)
 BuildRequires : pypi(itsdangerous)
 BuildRequires : pypi(jinja2)
+BuildRequires : pypi(py)
 BuildRequires : pypi(werkzeug)
-BuildRequires : pytest
-BuildRequires : tox
-BuildRequires : pypi(virtualenv)
-Provides: Flask
-Provides: Flask-python
-Provides: Flask-python3
+BuildRequires : pypi-pluggy
+BuildRequires : pypi-pytest
+BuildRequires : pypi-tox
+BuildRequires : pypi-virtualenv
 
 %description
 Flask
@@ -81,15 +78,15 @@ python3 components for the pypi-flask package.
 
 
 %prep
-%setup -q -n Flask-2.0.2
-cd %{_builddir}/Flask-2.0.2
+%setup -q -n Flask-2.0.3
+cd %{_builddir}/Flask-2.0.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641459125
+export SOURCE_DATE_EPOCH=1644890032
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -105,10 +102,10 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-flask
-cp %{_builddir}/Flask-2.0.2/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
-cp %{_builddir}/Flask-2.0.2/docs/license.rst %{buildroot}/usr/share/package-licenses/pypi-flask/4747036caafe4df836d096b9b49d7fdb2782b0ff
-cp %{_builddir}/Flask-2.0.2/examples/javascript/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
-cp %{_builddir}/Flask-2.0.2/examples/tutorial/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
+cp %{_builddir}/Flask-2.0.3/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
+cp %{_builddir}/Flask-2.0.3/docs/license.rst %{buildroot}/usr/share/package-licenses/pypi-flask/4747036caafe4df836d096b9b49d7fdb2782b0ff
+cp %{_builddir}/Flask-2.0.3/examples/javascript/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
+cp %{_builddir}/Flask-2.0.3/examples/tutorial/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
