@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7A1C87E3F5BC42A8 (davidism@gmail.com)
 #
 Name     : pypi-flask
-Version  : 2.1.3
-Release  : 64
-URL      : https://files.pythonhosted.org/packages/5b/77/3accd62b8771954e9584beb03f080385b32ddcad30009d2a4fe4068a05d9/Flask-2.1.3.tar.gz
-Source0  : https://files.pythonhosted.org/packages/5b/77/3accd62b8771954e9584beb03f080385b32ddcad30009d2a4fe4068a05d9/Flask-2.1.3.tar.gz
-Source1  : https://files.pythonhosted.org/packages/5b/77/3accd62b8771954e9584beb03f080385b32ddcad30009d2a4fe4068a05d9/Flask-2.1.3.tar.gz.asc
+Version  : 2.2.0
+Release  : 65
+URL      : https://files.pythonhosted.org/packages/dd/2e/6efff09194bd056e2dc3d4b87028cf835dfbde5b324570db351ef04b868a/Flask-2.2.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/dd/2e/6efff09194bd056e2dc3d4b87028cf835dfbde5b324570db351ef04b868a/Flask-2.2.0.tar.gz
+Source1  : https://files.pythonhosted.org/packages/dd/2e/6efff09194bd056e2dc3d4b87028cf835dfbde5b324570db351ef04b868a/Flask-2.2.0.tar.gz.asc
 Summary  : A simple framework for building complex web applications.
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -78,10 +78,10 @@ python3 components for the pypi-flask package.
 
 
 %prep
-%setup -q -n Flask-2.1.3
-cd %{_builddir}/Flask-2.1.3
+%setup -q -n Flask-2.2.0
+cd %{_builddir}/Flask-2.2.0
 pushd ..
-cp -a Flask-2.1.3 buildavx2
+cp -a Flask-2.2.0 buildavx2
 popd
 
 %build
@@ -89,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1657754856
+export SOURCE_DATE_EPOCH=1659452087
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -114,10 +114,10 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-flask
-cp %{_builddir}/Flask-2.1.3/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
-cp %{_builddir}/Flask-2.1.3/docs/license.rst %{buildroot}/usr/share/package-licenses/pypi-flask/4747036caafe4df836d096b9b49d7fdb2782b0ff
-cp %{_builddir}/Flask-2.1.3/examples/javascript/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
-cp %{_builddir}/Flask-2.1.3/examples/tutorial/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
+cp %{_builddir}/Flask-%{version}/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
+cp %{_builddir}/Flask-%{version}/docs/license.rst %{buildroot}/usr/share/package-licenses/pypi-flask/4747036caafe4df836d096b9b49d7fdb2782b0ff
+cp %{_builddir}/Flask-%{version}/examples/javascript/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
+cp %{_builddir}/Flask-%{version}/examples/tutorial/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
