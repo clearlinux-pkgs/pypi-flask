@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7A1C87E3F5BC42A8 (davidism@gmail.com)
 #
 Name     : pypi-flask
-Version  : 2.2.0
-Release  : 65
-URL      : https://files.pythonhosted.org/packages/dd/2e/6efff09194bd056e2dc3d4b87028cf835dfbde5b324570db351ef04b868a/Flask-2.2.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/dd/2e/6efff09194bd056e2dc3d4b87028cf835dfbde5b324570db351ef04b868a/Flask-2.2.0.tar.gz
-Source1  : https://files.pythonhosted.org/packages/dd/2e/6efff09194bd056e2dc3d4b87028cf835dfbde5b324570db351ef04b868a/Flask-2.2.0.tar.gz.asc
+Version  : 2.2.1
+Release  : 66
+URL      : https://files.pythonhosted.org/packages/4b/4f/50888944490f2263bd70171e8298c9626675fd3dfd750694a7beaa3484fb/Flask-2.2.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/4b/4f/50888944490f2263bd70171e8298c9626675fd3dfd750694a7beaa3484fb/Flask-2.2.1.tar.gz
+Source1  : https://files.pythonhosted.org/packages/4b/4f/50888944490f2263bd70171e8298c9626675fd3dfd750694a7beaa3484fb/Flask-2.2.1.tar.gz.asc
 Summary  : A simple framework for building complex web applications.
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -78,10 +78,10 @@ python3 components for the pypi-flask package.
 
 
 %prep
-%setup -q -n Flask-2.2.0
-cd %{_builddir}/Flask-2.2.0
+%setup -q -n Flask-2.2.1
+cd %{_builddir}/Flask-2.2.1
 pushd ..
-cp -a Flask-2.2.0 buildavx2
+cp -a Flask-2.2.1 buildavx2
 popd
 
 %build
@@ -89,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1659452087
+export SOURCE_DATE_EPOCH=1659587516
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
