@@ -6,7 +6,7 @@
 #
 Name     : pypi-flask
 Version  : 2.2.2
-Release  : 72
+Release  : 73
 URL      : https://files.pythonhosted.org/packages/69/b6/53cfa30eed5aa7343daff36622843688ba8c6fe9829bb2b92e193ab1163f/Flask-2.2.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/69/b6/53cfa30eed5aa7343daff36622843688ba8c6fe9829bb2b92e193ab1163f/Flask-2.2.2.tar.gz
 Source1  : https://files.pythonhosted.org/packages/69/b6/53cfa30eed5aa7343daff36622843688ba8c6fe9829bb2b92e193ab1163f/Flask-2.2.2.tar.gz.asc
@@ -27,6 +27,9 @@ BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
 BuildRequires : pypi-tox
 BuildRequires : pypi-virtualenv
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 Flask
@@ -89,15 +92,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1660058785
+export SOURCE_DATE_EPOCH=1672272250
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -114,10 +117,10 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-flask
-cp %{_builddir}/Flask-%{version}/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
-cp %{_builddir}/Flask-%{version}/docs/license.rst %{buildroot}/usr/share/package-licenses/pypi-flask/4747036caafe4df836d096b9b49d7fdb2782b0ff
-cp %{_builddir}/Flask-%{version}/examples/javascript/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
-cp %{_builddir}/Flask-%{version}/examples/tutorial/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c
+cp %{_builddir}/Flask-%{version}/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c || :
+cp %{_builddir}/Flask-%{version}/docs/license.rst %{buildroot}/usr/share/package-licenses/pypi-flask/4747036caafe4df836d096b9b49d7fdb2782b0ff || :
+cp %{_builddir}/Flask-%{version}/examples/javascript/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c || :
+cp %{_builddir}/Flask-%{version}/examples/tutorial/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
