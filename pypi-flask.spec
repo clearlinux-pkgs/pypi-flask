@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-flask
-Version  : 2.3.0
-Release  : 76
-URL      : https://files.pythonhosted.org/packages/04/f4/22384e109d9b7e295b20580bc6af5f45b78730d03f41f826639a5c006d1a/Flask-2.3.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/04/f4/22384e109d9b7e295b20580bc6af5f45b78730d03f41f826639a5c006d1a/Flask-2.3.0.tar.gz
+Version  : 2.3.1
+Release  : 77
+URL      : https://files.pythonhosted.org/packages/46/e7/3dc143f22a6aa997753aac1eb68b1b4ac8696819f10ff89d4ebb3de4c42d/Flask-2.3.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/46/e7/3dc143f22a6aa997753aac1eb68b1b4ac8696819f10ff89d4ebb3de4c42d/Flask-2.3.1.tar.gz
 Summary  : A simple framework for building complex web applications.
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -82,10 +82,10 @@ python3 components for the pypi-flask package.
 
 
 %prep
-%setup -q -n Flask-2.3.0
-cd %{_builddir}/Flask-2.3.0
+%setup -q -n Flask-2.3.1
+cd %{_builddir}/Flask-2.3.1
 pushd ..
-cp -a Flask-2.3.0 buildavx2
+cp -a Flask-2.3.1 buildavx2
 popd
 
 %build
@@ -93,7 +93,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682452049
+export SOURCE_DATE_EPOCH=1682520356
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
