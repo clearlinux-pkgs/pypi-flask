@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-flask
-Version  : 2.3.2
-Release  : 78
-URL      : https://files.pythonhosted.org/packages/4d/00/ef81c18da32fdfcde6381c315f4b11597fb6691180a330418848efee0ae7/Flask-2.3.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/4d/00/ef81c18da32fdfcde6381c315f4b11597fb6691180a330418848efee0ae7/Flask-2.3.2.tar.gz
+Version  : 2.3.3
+Release  : 79
+URL      : https://files.pythonhosted.org/packages/46/b7/4ace17e37abd9c21715dea5ee11774a25e404c486a7893fa18e764326ead/flask-2.3.3.tar.gz
+Source0  : https://files.pythonhosted.org/packages/46/b7/4ace17e37abd9c21715dea5ee11774a25e404c486a7893fa18e764326ead/flask-2.3.3.tar.gz
 Summary  : A simple framework for building complex web applications.
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -19,6 +19,8 @@ BuildRequires : buildreq-distutils3
 BuildRequires : pypi(amqp)
 BuildRequires : pypi(async_timeout)
 BuildRequires : pypi(billiard)
+BuildRequires : pypi(blinker)
+BuildRequires : pypi(flit_core)
 BuildRequires : pypi(py)
 BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
@@ -82,10 +84,10 @@ python3 components for the pypi-flask package.
 
 
 %prep
-%setup -q -n Flask-2.3.2
-cd %{_builddir}/Flask-2.3.2
+%setup -q -n flask-2.3.3
+cd %{_builddir}/flask-2.3.3
 pushd ..
-cp -a Flask-2.3.2 buildavx2
+cp -a flask-2.3.3 buildavx2
 popd
 
 %build
@@ -93,7 +95,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682972974
+export SOURCE_DATE_EPOCH=1692715042
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -118,9 +120,9 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-flask
-cp %{_builddir}/Flask-%{version}/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c || :
-cp %{_builddir}/Flask-%{version}/examples/javascript/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c || :
-cp %{_builddir}/Flask-%{version}/examples/tutorial/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c || :
+cp %{_builddir}/flask-%{version}/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c || :
+cp %{_builddir}/flask-%{version}/examples/javascript/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c || :
+cp %{_builddir}/flask-%{version}/examples/tutorial/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-flask/e32a549b135c4b2b268107adc12d13cca2ca1e8c || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
