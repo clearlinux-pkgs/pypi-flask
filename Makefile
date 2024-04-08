@@ -1,5 +1,5 @@
 PKG_NAME := pypi-flask
-URL = https://files.pythonhosted.org/packages/3f/e0/a89e8120faea1edbfca1a9b171cff7f2bf62ec860bbafcb2c2387c0317be/flask-3.0.2.tar.gz
+URL = https://files.pythonhosted.org/packages/41/e1/d104c83026f8d35dfd2c261df7d64738341067526406b40190bc063e829a/flask-3.0.3.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
