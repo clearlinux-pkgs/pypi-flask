@@ -7,7 +7,7 @@
 #
 Name     : pypi-flask
 Version  : 3.1.0
-Release  : 87
+Release  : 88
 URL      : https://files.pythonhosted.org/packages/89/50/dff6380f1c7f84135484e176e0cac8690af72fa90e932ad2a0a60e28c69b/flask-3.1.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/89/50/dff6380f1c7f84135484e176e0cac8690af72fa90e932ad2a0a60e28c69b/flask-3.1.0.tar.gz
 Summary  : A simple framework for building complex web applications.
